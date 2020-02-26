@@ -21,7 +21,7 @@ libshell.so: $(obj)
 
 shell.o: shell.c history.h logger.h ui.h
 history.o: history.c history.h logger.h
-ui.c: ui.h
+ui.o: ui.h ui.c logger.h history.h
 
 clean:
 	rm -f $(bin) $(obj) libshell.so vgcore.*
