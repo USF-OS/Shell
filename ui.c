@@ -59,6 +59,8 @@ int key_up(int count, int key)
     /* Move the cursor to the end of the line: */
     rl_point = rl_end;
 
+    // TODO: reverse history search
+
     return 0;
 }
 
@@ -69,6 +71,8 @@ int key_down(int count, int key)
 
     /* Move the cursor to the end of the line: */
     rl_point = rl_end;
+
+    // TODO: forward history search
 
     return 0;
 }
@@ -89,5 +93,11 @@ char **command_completion(const char *text, int start, int end)
  */
 char *command_generator(const char *text, int state)
 {
+    // TODO: find potential matching completions for 'text.' If you need to
+    // initialize any data structures, state will be set to '0' the first time
+    // this function is called. You will likely need to maintain static/global
+    // variables to track where you are in the search so that you don't start
+    // over from the beginning.
+
     return NULL;
 }
