@@ -6,15 +6,8 @@
 #include "logger.h"
 #include "ui.h"
 
-/* -- Private function forward declarations -- */
 static int readline_init(void);
-static int key_up(int count, int key);
-static int key_down(int count, int key);
-static char **command_completion(const char *text, int start, int end);
-static char *command_generator(const char *text, int state);
-
-static char prompt_str1[80] = "--[enter a command]--";
-static char prompt_str2[80] = "-> ";
+static char prompt_str[80] = "--[enter a command]--> ";
 
 void init_ui(void)
 {
@@ -27,18 +20,13 @@ void init_ui(void)
     rl_startup_hook = readline_init;
 }
 
-char *prompt_line1(void) {
-    return prompt_str1;
-}
-
-char *prompt_line2(void) {
-    return prompt_str2;
+char *prompt_line(void) {
+    return prompt_str;
 }
 
 char *read_command(void)
 {
-    puts(prompt_line1());
-    return readline(prompt_line2());
+    return readline(prompt_line());
 }
 
 int readline_init(void)
