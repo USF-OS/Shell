@@ -5,7 +5,8 @@ bin=crash
 LOGGER ?= 1
 
 # Compiler/linker flags
-CFLAGS += -g -Wall -lm -lreadline -fPIC -DLOGGER=$(LOGGER)
+CFLAGS += -g -Wall -fPIC -DLOGGER=$(LOGGER)
+LDLIBS += -lm -lreadline
 LDFLAGS +=
 
 src=history.c shell.c ui.c
@@ -36,7 +37,7 @@ testupdate: testclean test
 
 ./tests/run_tests:
 	rm -rf tests
-	git clone https://github.com/USF-OS/Shell-Testcases.git tests
+	git clone https://github.com/USF-OS/Shell-Tests.git tests
 
 testclean:
 	rm -rf tests
