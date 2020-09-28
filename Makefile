@@ -15,10 +15,10 @@ obj=$(src:.c=.o)
 all: $(bin) libshell.so
 
 $(bin): $(obj)
-	$(CC) $(CFLAGS) $(LDFLAGS) $(obj) -o $@
+	$(CC) $(CFLAGS) $(LDLIBS) $(LDFLAGS) $(obj) -o $@
 
 libshell.so: $(obj)
-	$(CC) $(CFLAGS) $(LDFLAGS) $(obj) -shared -o $@
+	$(CC) $(CFLAGS) $(LDLIBS) $(LDFLAGS) $(obj) -shared -o $@
 
 shell.o: shell.c history.h logger.h ui.h
 history.o: history.c history.h logger.h
